@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.11                                               
+FROM phusion/baseimage:0.9.22                                               
 MAINTAINER Martin Polak
 
 ENV HOME /root
@@ -9,11 +9,10 @@ ENV LANG cs_CZ.UTF-8
 
 RUN (apt-get update && \
      DEBIAN_FRONTEND=noninteractive \
-     apt-get install -y build-essential software-properties-common \
-                        zlib1g-dev libssl-dev libreadline-dev libyaml-dev \
-                        libxml2-dev libxslt-dev sqlite3 libsqlite3-dev \
+     apt-get install -y software-properties-common \
+                  
                         vim git byobu wget curl unzip tree exuberant-ctags \
-                        build-essential cmake python python-dev gdb screen)
+                        python gdb screen)
 
 # Add a non-root user
 RUN (useradd -m -d /home/docker -s /bin/bash docker && \
