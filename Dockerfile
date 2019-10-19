@@ -20,8 +20,7 @@ RUN (useradd -m -d /home/docker -s /bin/bash docker && \
      echo "docker ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers)
 
 # Install OpenJDK
-RUN (apt-get install -y openjdk-8-jdk ant maven \
-                        xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic)
+RUN (apt-get install -y openjdk-8-jdk ant maven)
 
 USER docker
 ENV HOME /home/docker
@@ -47,7 +46,6 @@ RUN (mkdir /home/docker/.ssh && \
     chmod 600 /home/docker/.ssh/id_rsa)
 
 USER root
-ADD service /etc/service
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD [“/bin/sh”]
