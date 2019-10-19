@@ -10,7 +10,6 @@ ENV LANG cs_CZ.UTF-8
 RUN (apt-get update && \
      DEBIAN_FRONTEND=noninteractive \
      apt-get install -y software-properties-common \
-                  
                         vim git byobu wget curl unzip tree exuberant-ctags \
                         python gdb screen)
 
